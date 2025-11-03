@@ -1,65 +1,71 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+export default function Contact() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <section className="p-10 max-w-4xl mx-auto text-gray-800">
+      <h1 className="text-4xl font-bold text-blue-900 mb-8 text-center">
+        Contactez ROS Service
+      </h1>
+
+      {/* Coordonnées */}
+      <div className="bg-gray-100 p-8 rounded-2xl shadow-lg mb-10">
+        <p className="mb-3">
+          📍 <strong>Adresse :</strong> 9 Rue de Vert, 78711 Mantes-la-Ville
+        </p>
+        <p className="mb-3">
+          📞 <strong>Téléphone :</strong> 06 23 01 18 03 • 06 20 81 33 22
+        </p>
+        <p className="mb-6">
+          ✉️ <strong>Email :</strong>{" "}
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:rosservice.sas@gmail.com"
+            className="text-blue-700 underline hover:text-blue-900"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            rosservice.sas@gmail.com
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        </p>
+
+        <h2 className="text-2xl font-semibold mb-4 text-blue-800">
+          Envoyez-nous un message
+        </h2>
+
+        <form className="flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Votre nom"
+            className="border border-gray-300 p-3 rounded-lg"
+          />
+          <input
+            type="email"
+            placeholder="Votre email"
+            className="border border-gray-300 p-3 rounded-lg"
+          />
+          <textarea
+            placeholder="Votre message"
+            rows="4"
+            className="border border-gray-300 p-3 rounded-lg"
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Envoyer
+          </button>
+        </form>
+      </div>
+
+      {/* Carte Google Maps */}
+      <div className="rounded-2xl overflow-hidden shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2637.266635276725!2d1.6947774768274024!3d48.96793997134032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e69ad1b930b4a7%3A0x1cb2d9a6d9d1a0f1!2s9%20Rue%20de%20Vert%2C%2078711%20Mantes-la-Ville!5e0!3m2!1sfr!2sfr!4v1730580000000!5m2!1sfr!2sfr"
+          width="100%"
+          height="400"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
   );
 }
