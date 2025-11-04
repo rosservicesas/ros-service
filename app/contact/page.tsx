@@ -43,7 +43,7 @@ export default function Contact() {
           />
           <textarea
             placeholder="Votre message"
-            rows="4"
+            rows={4}
             className="border border-gray-300 p-3 rounded-lg"
           ></textarea>
           <button

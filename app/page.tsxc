@@ -41,8 +41,7 @@ export default function Contact() {
             className="border border-gray-300 p-3 rounded-lg"
           />
           <textarea
-            placeholder="Votre message"
-            rows={4} 
+            placeholder="Votre message"            rows="4"
             className="border border-gray-300 p-3 rounded-lg"
           ></textarea>
           <button
@@ -61,7 +60,7 @@ export default function Contact() {
           width="100%"
           height="400"
           style={{ border: 0 }}
-          allowFullScreen
+          allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
