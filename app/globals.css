@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+/* base fonts/colors */
+html, body {
+  height: 100%;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9fafb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* small helpers */
+a { text-decoration: none; }
