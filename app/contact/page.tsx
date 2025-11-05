@@ -1,69 +1,119 @@
 "use client";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-export default function Contact() {
+export default function Home() {
   return (
-    <section className="p-10 max-w-4xl mx-auto text-gray-800">
-      <h1 className="text-4xl font-bold text-blue-900 mb-8 text-center">
-        Contactez ROS Service
-      </h1>
-
-      <div className="bg-gray-100 p-8 rounded-2xl shadow-lg mb-10">
-        <p className="mb-3">
-          📍 <strong>Adresse :</strong> 9 Rue de Vert, 78711 Mantes-la-Ville
-        </p>
-        <p className="mb-3">
-          📞 <strong>Téléphone :</strong> 06 23 01 18 03 • 06 20 81 33 22
-        </p>
-        <p className="mb-6">
-          ✉️ <strong>Email :</strong>{" "}
-          <a
-            href="mailto:rosservice.sas@gmail.com"
-            className="text-blue-700 underline hover:text-blue-900"
+    <main className="bg-gray-50 text-gray-900">
+      {/* SECTION HERO */}
+      <section className="relative h-[85vh] flex items-center justify-center text-center overflow-hidden">
+        <Image
+          src="/hero-renovation.jpg" // 👉 place une belle photo dans public/
+          alt="Travaux de rénovation ROSService"
+          fill
+          className="object-cover brightness-75"
+          priority
+        />
+        <div className="relative z-10 px-6">
+          <motion.h1
+            className="text-5xl sm:text-6xl font-extrabold text-white drop-shadow-lg mb-4"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            rosservice.sas@gmail.com
-          </a>
+            ROSSERVICE
+          </motion.h1>
+          <motion.p
+            className="text-lg sm:text-2xl text-white/90 mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0, delay: 0.3 }}
+          >
+            Spécialiste en rénovation intérieure et extérieure — tout corps d’état en Île-de-France.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, delay: 0.6 }}
+          >
+            <Link
+              href="/projects"
+              className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition"
+            >
+              Voir nos réalisations
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION SERVICES */}
+      <section className="py-16 px-6 max-w-7xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-6">Nos domaines d’intervention</h2>
+        <p className="text-gray-600 mb-12 max-w-3xl mx-auto">
+          Depuis plus de <strong>10 ans</strong>, ROSSERVICE accompagne ses clients dans leurs projets
+          de rénovation, de construction et d’aménagement. Nous assurons des prestations
+          sur mesure avec une qualité irréprochable.
         </p>
 
-        <h2 className="text-2xl font-semibold mb-4 text-blue-800">
-          Envoyez-nous un message
-        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            { title: "Peinture & Finitions", icon: "🎨", desc: "Peinture intérieure, enduits, finitions haut de gamme." },
+            { title: "Maçonnerie & Gros Œuvre", icon: "🧱", desc: "Création, ouverture, cloisonnement, béton, plâtre." },
+            { title: "Plomberie & Salle de Bain", icon: "🚿", desc: "Installation sanitaire complète et rénovation clé en main." },
+            { title: "Électricité", icon: "💡", desc: "Mise aux normes, éclairage moderne, domotique." },
+            { title: "Menuiserie sur mesure", icon: "🪚", desc: "Mobilier, escaliers, rangements et agencements personnalisés." },
+            { title: "Revêtements de sols", icon: "🏡", desc: "Parquet, carrelage, sols PVC — pose et rénovation." },
+          ].map((s, i) => (
+            <motion.div
+              key={i}
+              className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition"
+              whileHover={{ scale: 1.03 }}
+            >
+              <div className="text-4xl mb-3">{s.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
+              <p className="text-gray-600">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-        <form className="flex flex-col gap-4">
-          <input
-            type="text"
-            placeholder="Votre nom"
-            className="border border-gray-300 p-3 rounded-lg"
-          />
-          <input
-            type="email"
-            placeholder="Votre email"
-            className="border border-gray-300 p-3 rounded-lg"
-          />
-          <textarea
-            placeholder="Votre message"
-            rows={4}
-            className="border border-gray-300 p-3 rounded-lg"
-          ></textarea>
-          <button
-            type="submit"
-            className="bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition"
-          >
-            Envoyer
-          </button>
-        </form>
-      </div>
+      {/* SECTION AVANTAGES */}
+      <section className="bg-yellow-500 text-white py-16 text-center">
+        <h2 className="text-3xl font-bold mb-4">Pourquoi choisir ROSSERVICE ?</h2>
+        <p className="max-w-3xl mx-auto text-lg mb-10">
+          Parce que la qualité, la réactivité et la satisfaction client sont au cœur de nos valeurs.
+        </p>
+        <div className="flex flex-wrap justify-center gap-8">
+          {[
+            "Travail soigné & rapide",
+            "Matériaux de qualité",
+            "Garantie décennale",
+            "Devis gratuit sous 48h",
+            "Équipe qualifiée et passionnée",
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className="bg-white/10 backdrop-blur-lg px-6 py-3 rounded-full text-lg font-medium"
+              whileHover={{ scale: 1.05 }}
+            >
+              {item}
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-      <div className="rounded-2xl overflow-hidden shadow-lg">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2637.266635276725!2d1.6947774768274024!3d48.96793997134032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e69ad1b930b4a7%3A0x1cb2d9a6d9d1a0f1!2s9%20Rue%20de%20Vert%2C%2078711%20Mantes-la-Ville!5e0!3m2!1sfr!2sfr!4v1730580000000!5m2!1sfr!2sfr"
-          width="100%"
-          height={400}
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-    </section>
+      {/* SECTION CONTACT */}
+      <section className="py-20 px-6 text-center bg-gray-100">
+        <h2 className="text-3xl font-bold mb-6">Vous avez un projet ?</h2>
+        <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
+          Contactez-nous dès aujourd’hui pour obtenir un devis gratuit et des conseils adaptés à vos besoins.
+        </p>
+        <Link
+          href="/contact"
+          className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition"
+        >
+          Demander un devis
+        </Link>
+      </section>
+    </main>
   );
 }
